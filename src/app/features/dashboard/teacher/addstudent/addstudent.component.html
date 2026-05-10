@@ -1,0 +1,107 @@
+<div class="add-student-page">
+  <section class="form-card">
+    <div class="page-header">
+      <h2>Add Student</h2>
+    </div>
+
+    <div class="form-grid">
+
+      <!-- Full Name -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Full Name *</mat-label>
+        <input matInput [(ngModel)]="student.fullName">
+      </mat-form-field>
+
+      <!-- Gender -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Gender</mat-label>
+        <mat-select [(ngModel)]="student.gender">
+          <mat-option value="">Select</mat-option>
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+          <mat-option value="Other">Other</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- DOB -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="dobPicker" [(ngModel)]="student.dob">
+        <mat-datepicker-toggle matSuffix [for]="dobPicker"></mat-datepicker-toggle>
+        <mat-datepicker #dobPicker></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Class -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Class</mat-label>
+        <mat-select [(ngModel)]="student.classNo" (selectionChange)="onClassChange($event.value)">
+          <mat-option value="">Select</mat-option>
+          <mat-option *ngFor="let option of classOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Board Type (auto-set) -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Type</mat-label>
+        <input matInput [value]="student.boardType" readonly>
+      </mat-form-field>
+
+      <!-- HSC Group -->
+      @if (student.boardType === 'HSC') {
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>HSC Group</mat-label>
+          <mat-select [(ngModel)]="student.hscGroup">
+            <mat-option value="">Select group</mat-option>
+            <mat-option *ngFor="let group of hscGroups" [value]="group">
+              {{ group }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      }
+
+      <!-- Email -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="student.email">
+      </mat-form-field>
+
+      <!-- Phone -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Phone</mat-label>
+        <input matInput type="tel" [(ngModel)]="student.phone">
+      </mat-form-field>
+
+      <!-- Father Name -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Father Name</mat-label>
+        <input matInput [(ngModel)]="student.fatherName">
+      </mat-form-field>
+
+      <!-- Mother Name -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Mother Name</mat-label>
+        <input matInput [(ngModel)]="student.motherName">
+      </mat-form-field>
+
+      <!-- Parent Phone -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Parent Phone</mat-label>
+        <input matInput type="tel" [(ngModel)]="student.parentPhone">
+      </mat-form-field>
+
+      <!-- Address -->
+      <mat-form-field appearance="outline" subscriptSizing="dynamic" class="full-width">
+        <mat-label>Address</mat-label>
+        <textarea matInput rows="1" [(ngModel)]="student.address"></textarea>
+      </mat-form-field>
+
+    </div>
+
+    <button class="save-action-btn" mat-raised-button color="primary" (click)="saveStudent()">
+      Save
+    </button>
+
+  </section>
+</div>

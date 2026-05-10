@@ -1,0 +1,44 @@
+<app-teacher-back-button></app-teacher-back-button>
+<app-loading-overlay></app-loading-overlay>
+
+<div class="attendance-page">
+  <section class="attendance-wrap">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Take Attendance</p>
+        <h2>Class {{ classNo || '—' }}</h2>
+        <p class="subhead">Mark today’s presence quickly and confidently.</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Present</span>
+        <div class="stat-value">{{ presentCount }} / {{ students.length }}</div>
+        <div class="progress">
+          <div class="progress-bar" [style.width.%]="students.length ? (presentCount / students.length) * 100 : 0"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pill-row">
+      <span class="pill">Class {{ classNo || 'N/A' }}</span>
+      <span class="pill soft">Roll count: {{ students.length }}</span>
+    </div>
+
+    <div class="attendance-list">
+      @for (student of students; track student.guid) {
+        <label class="student-row" [class.absent]="!student.present">
+          <div class="student-meta">
+            <span class="avatar">{{ student.name.slice(0, 1) }}</span>
+            <div>
+              <div class="student-name">{{ student.name }}</div>
+              <div class="student-sub">ID: {{ student.guid || '—' }}</div>
+              <div class="student-sub" *ngIf="student.email">Email: {{ student.email }}</div>
+            </div>
+          </div>
+          <input class="present-toggle" type="checkbox" [(ngModel)]="student.present" />
+        </label>
+      }
+    </div>
+
+    <button class="save-btn" type="button" (click)="saveAttendance()">Save Attendance</button>
+  </section>
+</div>

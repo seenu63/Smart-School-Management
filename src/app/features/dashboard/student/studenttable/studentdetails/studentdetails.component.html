@@ -1,0 +1,55 @@
+<section class="details-shell">
+  <div class="details-glow details-glow--one"></div>
+  <div class="details-glow details-glow--two"></div>
+
+  <header class="profile-card">
+    <div class="profile-main">
+      <div class="avatar">{{ initials }}</div>
+      <div>
+        <p class="eyebrow">Student Profile</p>
+        <h1>{{ student?.name || '-' }}</h1>
+        <p class="subline">ID: {{ student?.id || '-' }} | Roll No: {{ student?.rollNo || '-' }}</p>
+      </div>
+    </div>
+
+    <span class="status-badge" [ngClass]="statusClass">{{ student?.status || '-' }}</span>
+
+    <div class="quick-stats">
+      <div class="stat-chip">
+        <span>Class</span>
+        <strong>{{ student?.class || '-' }}</strong>
+      </div>
+      <div class="stat-chip">
+        <span>Section</span>
+        <strong>{{ student?.section || '-' }}</strong>
+      </div>
+      <div class="stat-chip">
+        <span>GPA</span>
+        <strong>{{ student?.gpa || '-' }}</strong>
+      </div>
+    </div>
+  </header>
+
+  <div class="details-grid">
+    <article class="info-card">
+      <h2>Contact</h2>
+      <p><span>Email</span>{{ student?.email || '-' }}</p>
+      <p><span>Phone</span>{{ student?.phone || '-' }}</p>
+      <p><span>Address</span>{{ student?.address || '-' }}</p>
+    </article>
+
+    <article class="info-card">
+      <h2>Academic</h2>
+      <p><span>Enrollment</span>{{ student?.enrollmentDate || '-' }}</p>
+      <p><span>Date of Birth</span>{{ student?.dateOfBirth || '-' }}</p>
+      <p><span>Section</span>{{ student?.section || '-' }}</p>
+    </article>
+
+    <article class="info-card info-card--wide">
+      <h2>Parent / Guardian</h2>
+      <p><span>Father Name</span>{{ student?.fatherName || '-' }}</p>
+      <p><span>Mother Name</span>{{ student?.motherName || '-' }}</p>
+      <p><span>Phone</span>{{ student?.parentPhone || '-' }}</p>
+    </article>
+  </div>
+</section>

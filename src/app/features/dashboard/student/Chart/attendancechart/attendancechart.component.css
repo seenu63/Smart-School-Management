@@ -1,0 +1,12 @@
+.attendance-wrapper {
+  height: 374px;  
+}
+
+.attendance-wrapper .p-chart {
+  height: 100%;
+} 
+
+.attendance-wrapper canvas {
+  height: 100% !important;
+}
+ 

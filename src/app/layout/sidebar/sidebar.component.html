@@ -1,0 +1,113 @@
+<div class="layout-sidebar" [class.close]="collapsed">
+    <div class="menu-section">
+        <div class="menu-sub">
+            <span class="menu-title menu-text">HOME</span>
+
+            <button class="menu-toggle" type="button" (click)="toggleSidebar.emit()" aria-label="Toggle sidebar">
+                <span class="menu-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" focusable="false">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                </span>
+            </button>
+        </div>
+
+        @if (showTeacherMenu) {
+        <a class="menu-item" routerLink="/teacher-dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <span class="menu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M3 11.5 12 4l9 7.5"></path>
+                    <path d="M6.5 10.5V20h11v-9.5"></path>
+                </svg>
+            </span>
+            <span class="menu-text">Dashboard</span>
+        </a>
+
+        <a class="menu-item" routerLink="/teacher-add-student" routerLinkActive="active">
+            <span class="menu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"></path>
+                    <path d="M5 20a7 7 0 0 1 14 0"></path>
+                    <path d="M17 8h4"></path>
+                    <path d="M19 6v4"></path>
+                </svg>
+            </span>
+            <span class="menu-text">Add Student</span>
+        </a>
+
+        <a class="menu-item" routerLink="/teacher-add-staff" routerLinkActive="active">
+            <span class="menu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M7 11a4 4 0 1 1 4-4 4 4 0 0 1-4 4Z"></path>
+                    <path d="M17 11a3 3 0 1 1 3-3 3 3 0 0 1-3 3Z"></path>
+                    <path d="M2 20c0-3.3 2.7-6 6-6h0"></path>
+                    <path d="M14 20c0-2.4 1.9-4.3 4.3-4.3H22"></path>
+                </svg>
+            </span>
+            <span class="menu-text">Add Staff</span>
+        </a>
+
+        <a class="menu-item" routerLink="/teacher-add-mark" routerLinkActive="active">
+            <span class="menu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M6 19V10"></path>
+                    <path d="M12 19V5"></path>
+                    <path d="M18 19v-7"></path>
+                    <path d="M5 22h14"></path>
+                </svg>
+            </span>
+            <span class="menu-text">Add Mark</span>
+        </a>
+        }
+
+        @if (showStudentMenu) {
+        <a class="menu-item" routerLink="/student-dashboard" [queryParams]="studentQueryParams" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <span class="menu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M3 11.5 12 4l9 7.5"></path>
+                    <path d="M6.5 10.5V20h11v-9.5"></path>
+                </svg>
+            </span>
+            <span class="menu-text">Dashboard</span>
+        </a>
+        }
+    </div>
+
+    @if (showStudentMenu) {
+    <div class="menu-section">
+        <span class="menu-title menu-text">UI COMPONENTS</span>
+
+        <a class="menu-item" routerLink="/student-details" [queryParams]="studentQueryParams" routerLinkActive="active">
+            <span class="menu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"></path>
+                    <path d="M5 20a7 7 0 0 1 14 0"></path>
+                </svg>
+            </span>
+            <span class="menu-text">Student</span>
+        </a>
+
+        <a class="menu-item" routerLink="/studentmark" [queryParams]="studentQueryParams" routerLinkActive="active">
+            <span class="menu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M6 19V10"></path>
+                    <path d="M12 19V5"></path>
+                    <path d="M18 19v-7"></path>
+                </svg>
+            </span>
+            <span class="menu-text">Marks</span>
+        </a>
+
+        <a class="menu-item" routerLink="/student-attendance" [queryParams]="studentQueryParams" routerLinkActive="active">
+            <span class="menu-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M7 4v3M17 4v3M4 9h16"></path>
+                    <rect x="4" y="6" width="16" height="14" rx="2"></rect>
+                    <path d="m9 14 2 2 4-4"></path>
+                </svg>
+            </span>
+            <span class="menu-text">Attendance</span>
+        </a>
+    </div>
+    }
+</div>

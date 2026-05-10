@@ -1,0 +1,121 @@
+/* Layout container */
+.layout{
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  margin-top: 60px;
+}
+
+/* Body */
+.layout-body{
+  display:flex;
+  flex:1;
+  width:100%;
+  margin-top: 0;
+}
+
+/* Sidebar */
+.layout-sidebar{
+  width:260px;
+  height:calc(100vh - 120px);
+  background:#fff;
+  border-right:1px solid #e5e7eb;
+  padding:15px;
+  transition:width .3s;
+  position:fixed;
+  left:0;
+  top:60px;
+}
+
+/* Content */
+.content{
+  flex:1;
+  margin-left:260px;
+  padding:20px;
+  background:#f5f5f5;
+  min-height:calc(100vh - 120px);
+  overflow:auto;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+.teacher-back-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.teacher-back-btn {
+  border: 0;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.teacher-back-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Collapse */
+.layout.close .layout-sidebar{
+  width:70px;
+}
+
+.layout.close .content{
+  margin-left:70px;
+  transition: margin-left 0.3s ease;
+}
+
+.grid{
+  width:100%;
+  max-width:100%;
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .content {
+    margin-left: 0;
+  }
+}
+
+/* Add styles for stats cards */
+.stats-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  min-height: 120px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  margin-bottom: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+.stats-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.stats-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.stats-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}

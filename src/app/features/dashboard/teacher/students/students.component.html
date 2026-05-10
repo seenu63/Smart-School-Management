@@ -1,0 +1,23 @@
+<app-teacher-back-button></app-teacher-back-button>
+
+<div class="students-page">
+  <section class="students-wrap">
+    <div class="page-header">
+      <h2>Class {{ classNo }} Students</h2>
+      <p class="page-subtitle">Select a student to open dashboard</p>
+      <span class="count-badge">{{ students.length }} Students</span>
+    </div>
+
+    <ul class="students-list" role="list">
+      @for (student of students; track student.guid) {
+        <li class="student-item">
+          <button class="student-link" type="button" (click)="openStudentDashboard(student)">
+            <span class="student-avatar">{{ student.name.charAt(0) | uppercase }}</span>
+            <span class="student-name">{{ student.name }}</span>
+            <span class="student-arrow">View</span>
+          </button>
+        </li>
+      }
+    </ul>
+  </section>
+</div>

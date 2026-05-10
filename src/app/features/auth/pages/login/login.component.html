@@ -1,0 +1,54 @@
+<div class="MainForm">
+  <app-loading-overlay></app-loading-overlay>
+
+  <!-- Toast Notification  -->
+  <div
+    class="toast"
+    *ngIf="showToast"
+    [class.success]="toastType === 'success'"
+    [class.error]="toastType === 'error'"
+    (mouseenter)="restartToastProgress()">
+    <button class="toast-close" type="button" aria-label="Close message" (click)="hideToast()">×</button>
+    <span class="toast-text">{{ toastMessage }}</span>
+    <span class="toast-progress" aria-hidden="true" [style.width.%]="toastProgress"></span>
+  </div>
+
+  <div class="imgHadle">
+    <!-- Login Form -->
+    <div class="Container">
+      <h2 class="LoginHeader">Login</h2>
+      <div class="SubContainer">
+        
+        <mat-form-field appearance="outline" class="auth-field">
+          <mat-label>User Name</mat-label>
+          <input matInput [(ngModel)]="Userid" type="text" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="auth-field">
+          <mat-label>Password</mat-label>
+          <input matInput [(ngModel)]="Password" type="password" required />
+        </mat-form-field>
+
+        <div class="forgatPWD">
+          <div>
+            <input type="checkbox" id="remember" />
+            <label for="remember">Remember password</label>
+          </div>
+          <div>
+            <a href="#">Forgot Password?</a>
+          </div>
+        </div>
+
+        <button class="login-btn" type="button" (click)="Login()" [disabled]="isLoading">
+          {{ isLoading ? 'Loading...' : 'Login' }}
+        </button>
+               
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="imageBox">
+      <img src="assets/images/LoginMen.png" alt="Login Illustration" class="LogImg" />
+    </div>
+  </div>
+</div>

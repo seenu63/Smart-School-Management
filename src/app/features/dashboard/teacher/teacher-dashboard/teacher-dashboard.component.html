@@ -1,0 +1,18 @@
+<div class="teacher-dashboard-page">
+  <div class="dashboard-grid dashboard-grid--cards">
+    @for (classNo of controlledClasses; track classNo; let i = $index) {
+      <div class="dashboard-col dashboard-col--card">
+        <app-teacherwidget
+          [title]="getClassCountText(classNo)"
+          [value]="''"
+          [description]="getDescription(classNo)"
+          [actionText]="'Take attendance'"
+          [secondaryActionText]="'View Students'"
+          [iconColor]="cardColors[i % cardColors.length]"
+          (actionClick)="openAttendance(classNo)"
+          (secondaryActionClick)="openStudents(classNo)">
+        </app-teacherwidget>
+      </div>
+    }
+  </div>
+</div>

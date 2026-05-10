@@ -1,0 +1,170 @@
+<div class="add-mark-page">
+  <app-loading-overlay></app-loading-overlay>
+  <section class="form-card">
+    <div class="page-header">
+      <h2>Add Mark</h2>
+    </div>
+
+    <div class="class-checkboxes">
+      @for (cls of classOptions; track cls) {
+        <mat-checkbox
+          [checked]="selectedClasses.includes(cls)"
+          (click)="handleClassClick(cls)"
+        >
+          Class {{ cls }}
+        </mat-checkbox>
+      }
+    </div>
+
+    <div class="form-grid">
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Student Name *</mat-label>
+        <mat-select #studentSelect [(ngModel)]="mark.studentId" (selectionChange)="onStudentSelected($event.value)">
+          @for (student of studentOptions; track student.guid) {
+            <mat-option [value]="student.guid">{{ student.name }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Student ID</mat-label>
+        <input matInput [value]="mark.studentId" readonly tabindex="-1" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Type *</mat-label>
+        <mat-select [(ngModel)]="mark.boardType" [disabled]="true">
+          @for (type of boardTypes; track type) {
+            <mat-option [value]="type">{{ type }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      @if (showHscSubjects) {
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>HSC Group *</mat-label>
+          <mat-select [(ngModel)]="mark.hscGroup" (selectionChange)="onHscGroupChange($event)">
+            <mat-option value="">Select group</mat-option>
+            @for (group of hscGroups; track group) {
+              <mat-option [value]="group">{{ group }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      }
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Exam Type *</mat-label>
+        <mat-select [(ngModel)]="mark.examType">
+          <mat-option value="">Select exam</mat-option>
+          @for (type of examTypes; track type) {
+            <mat-option [value]="type">{{ type }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Tamil *</mat-label>
+        <input matInput [(ngModel)]="mark.tamil" (ngModelChange)="onMarksChanged()" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>English *</mat-label>
+        <input matInput [(ngModel)]="mark.english" (ngModelChange)="onMarksChanged()" />
+      </mat-form-field>
+
+      @if (showMaths) {
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Maths *</mat-label>
+          <input matInput [(ngModel)]="mark.maths" (ngModelChange)="onMarksChanged()" />
+        </mat-form-field>
+      }
+
+      @if (showScience) {
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Science *</mat-label>
+          <input matInput [(ngModel)]="mark.science" (ngModelChange)="onMarksChanged()" />
+        </mat-form-field>
+      }
+
+      @if (showSscSubjects) {
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Social *</mat-label>
+          <input matInput [(ngModel)]="mark.social" (ngModelChange)="onMarksChanged()" />
+        </mat-form-field>
+      }
+
+      @if (showHscSubjects) {
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Physics *</mat-label>
+          <input matInput [(ngModel)]="mark.physics" (ngModelChange)="onMarksChanged()" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Chemistry *</mat-label>
+          <input matInput [(ngModel)]="mark.chemistry" (ngModelChange)="onMarksChanged()" />
+        </mat-form-field>
+
+        @if (requiresCs) {
+          <mat-form-field appearance="outline" subscriptSizing="dynamic">
+            <mat-label>CS *</mat-label>
+            <input matInput [(ngModel)]="mark.cs" (ngModelChange)="onMarksChanged()" />
+          </mat-form-field>
+        }
+
+        @if (requiresBiology) {
+          <mat-form-field appearance="outline" subscriptSizing="dynamic">
+            <mat-label>Biology *</mat-label>
+            <input matInput [(ngModel)]="mark.biology" (ngModelChange)="onMarksChanged()" />
+          </mat-form-field>
+        }
+      }
+
+      <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>Total Mark *</mat-label>
+        <input
+          matInput
+          type="number"
+          min="1"
+          [(ngModel)]="mark.totalMark"
+          readonly
+          tabindex="-1"
+          class="readonly-input"
+        />
+      </mat-form-field>
+
+      @if (!isEditMode) {
+        <mat-form-field appearance="outline" subscriptSizing="dynamic">
+          <mat-label>Exam Date *</mat-label>
+          <input matInput [matDatepicker]="examDatePicker" [(ngModel)]="mark.examDate" />
+          <mat-datepicker-toggle matSuffix [for]="examDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #examDatePicker></mat-datepicker>
+        </mat-form-field>
+      }
+
+    </div>
+
+    <div class="actions-row">
+      <button class="save-action-btn" mat-raised-button color="primary" type="button" (click)="saveMark()">
+        {{ isEditMode ? 'Update' : 'Save' }}
+      </button>
+
+      <button
+        class="delete-action-btn"
+        mat-icon-button
+        type="button"
+        *ngIf="isEditMode"
+        (click)="deleteMark()"
+        aria-label="Delete mark">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M6 7h12"></path>
+          <path d="M10 11v6"></path>
+          <path d="M14 11v6"></path>
+          <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12"></path>
+          <path d="M9 7V4h6v3"></path>
+          <path d="M4 7h16"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+</div>

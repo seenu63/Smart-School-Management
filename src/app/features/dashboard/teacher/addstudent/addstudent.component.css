@@ -1,0 +1,255 @@
+.add-student-page {
+  display: flex;
+  justify-content: center;
+}
+
+.form-card,
+.table-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.form-card {
+  width: min(920px, 100%);
+}
+
+.page-header {
+  margin-bottom: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #eff6ff 0%, #ecfeff 100%);
+  border: 1px solid #bfdbfe;
+  text-align: center;
+}
+
+h2,
+h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.status {
+  margin: 0 0 0.9rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.status--success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+.status--error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.form-grid mat-form-field {
+  width: 100%;
+  --mat-form-field-container-height: 40px;
+  --mat-form-field-container-vertical-padding: 8px;
+}
+
+.form-grid ::ng-deep .mat-mdc-form-field-icon-suffix .mat-mdc-icon-button {
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+}
+
+.form-grid ::ng-deep .mat-mdc-form-field-icon-suffix {
+  padding-right: 4px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.invalid-field {
+  --mdc-outlined-text-field-outline-color: #ef4444;
+  --mdc-outlined-text-field-hover-outline-color: #ef4444;
+  --mdc-outlined-text-field-focus-outline-color: #ef4444;
+  --mat-select-enabled-arrow-color: #ef4444;
+}
+
+.save-btn {
+  margin-top: 0.9rem;
+  border: 0;
+  border-radius: 8px;
+  background: #0284c7;
+  color: #ffffff;
+  padding: 0.65rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #0369a1;
+}
+
+.save-action-btn {
+  --mdc-protected-button-container-color: #1d4ed8;
+  --mdc-protected-button-label-text-color: #ffffff;
+  --mdc-protected-button-container-shape: 10px;
+  margin-top: 0.95rem;
+  min-width: 90px;
+  height: 42px;
+  border: 1px solid #2563eb;
+  border-radius: 5px;
+  padding: 0 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  color: #ffffff;
+  background: #1d4ed8;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+
+.save-action-btn:hover {
+  --mdc-protected-button-container-color: #1e40af;
+  background: #1e40af;
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.28);
+}
+
+.save-action-btn:active {
+  transform: translateY(1px);
+}
+
+.save-action-btn:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 2px;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  color: #0f172a;
+  padding: 12px 38px 18px 14px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.14);
+  font-size: 14px;
+  line-height: 1.35;
+  min-width: 240px;
+  max-width: 340px;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+  border: 1px solid transparent;
+}
+
+.toast.success {
+  background-color: #dcfce7;
+  color: #166534;
+  border-color: #86efac;
+}
+
+.toast.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-color: #fca5a5;
+}
+
+.toast-text {
+  display: block;
+  font-weight: 600;
+  padding-right: 2px;
+}
+
+.toast-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.6);
+  color: inherit;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.toast-close:hover {
+  background: rgba(255, 255, 255, 0.92);
+  transform: scale(1.05);
+}
+
+.toast-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  transition: width 0.016s linear;
+}
+
+.toast.success .toast-progress {
+  background: #15803d;
+}
+
+.toast.error .toast-progress {
+  background: #b91c1c;
+}
+
+.table-wrap {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.6rem;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+th {
+  color: #374151;
+  background: #f9fafb;
+}
+
+.empty {
+  margin: 0;
+  color: #6b7280;
+}
+
+@media (max-width: 1100px) {
+  .add-student-page {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

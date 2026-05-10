@@ -1,0 +1,11 @@
+@if (toast.visible) {
+  <div
+    class="toast"
+    [class.success]="toast.type === 'success'"
+    [class.error]="toast.type === 'error'"
+    (mouseenter)="restart()">
+    <button class="toast-close" type="button" aria-label="Close message" (click)="hide()">×</button>
+    <span class="toast-text">{{ toast.message }}</span>
+    <span class="toast-progress" aria-hidden="true" [style.width.%]="toastProgress"></span>
+  </div>
+}

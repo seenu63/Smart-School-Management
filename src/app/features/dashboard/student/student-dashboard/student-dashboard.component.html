@@ -1,0 +1,36 @@
+<div class="dashboard-grid dashboard-grid--cards">
+    @for (card of cards; track card.title) {
+    <div class="dashboard-col dashboard-col--card">
+        <app-studentwidget
+            [title]="card.title"
+            [value]="card.value"
+            [description]="card.description"
+            [icon]="card.icon"
+            [iconColor]="card.iconColor">
+        </app-studentwidget>
+    </div>
+    }
+</div>
+
+<div class="dashboard-grid dashboard-grid--charts">
+    <div class="dashboard-col dashboard-col--chart">
+        @defer (on viewport) {
+            <app-attendancechart
+                [labels]="attendanceChartLabels"
+                [values]="attendanceChartValues">
+            </app-attendancechart>
+        } @placeholder {
+            <div class="card" style="min-height: 24rem;"></div>
+        }
+    </div>
+    <div class="dashboard-col dashboard-col--chart">
+        @defer (on viewport) {
+            <app-markchart
+                [labels]="markChartLabels"
+                [values]="markChartValues">
+            </app-markchart>
+        } @placeholder {
+            <div class="card" style="min-height: 24rem;"></div>
+        }
+    </div>
+</div>

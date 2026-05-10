@@ -1,0 +1,25 @@
+<div class="layout" [class.close]="collapsed">
+
+  <app-topbar></app-topbar>
+
+  <div class="layout-body">
+
+    <app-sidebar 
+      [collapsed]="collapsed"
+      (toggleSidebar)="toggleSidebar()">
+    </app-sidebar>
+
+    <main class="content">
+      <app-toast></app-toast>
+
+      @if (showTeacherBackButton) {
+        <div class="teacher-back-row">
+          <button class="teacher-back-btn" type="button" (click)="goToTeacherDashboard()">Back</button>
+        </div>
+      }
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
+</div>

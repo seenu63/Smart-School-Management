@@ -1,0 +1,27 @@
+<div class="stats-card">
+  <div class="stats-content">
+    <p class="stats-kicker">Class Management</p>
+    <span class="stats-title">{{ title }}</span>
+    @if (value) {
+      <h2>{{ value }}</h2>
+    }
+    <p class="stats-description">{{ description }}</p>
+    <div class="action-row">
+      @if (actionText) {
+        <button class="action-btn action-btn--primary" type="button" (click)="actionClick.emit()">{{ actionText }}</button>
+      }
+      @if (secondaryActionText) {
+        <button class="action-btn action-btn--secondary" type="button" (click)="secondaryActionClick.emit()">{{ secondaryActionText }}</button>
+      }
+    </div>
+  </div>
+  <div class="stats-icon {{ iconColor }}">
+    <span aria-hidden="true">
+      <svg viewBox="0 0 24 24" focusable="false">
+        <path d="M3 7l9-4 9 4-9 4-9-4z"></path>
+        <path d="M6 10v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5"></path>
+        <path d="M18 11v6"></path>
+      </svg>
+    </span>
+  </div>
+</div>

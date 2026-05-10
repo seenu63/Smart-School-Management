@@ -1,0 +1,107 @@
+<section class="marks-page">
+  <div class="page-shell">
+   
+    <div class="marks-hero">
+      <div class="marks-hero-copy">
+        <p class="marks-kicker">Attendance View</p>
+        <h2>Student Attendance Overview</h2>
+        <p class="marks-description">Choose a month and load student attendance metrics in one place.</p>
+      </div>
+
+      <div class="marks-summary">
+        <span class="summary-label">Total Records</span>
+        <strong>{{ attendanceRows.length }}</strong>
+      </div>
+    </div>
+
+    <div class="marks-toolbar">
+      <div class="marks-toolbar-copy">
+        <h3>Filter Attendance</h3>
+        <span>Search attendance by selected month</span>
+      </div>
+
+      <div class="marks-toolbar-actions">
+        <mat-form-field class="mark-type-select" appearance="outline">
+          <mat-label>Month</mat-label>
+          <mat-select [value]="selectedMonth" (selectionChange)="onMonthChange($event.value)">
+            @for (option of monthOptions; track option.value) {
+              <mat-option [value]="option.value">{{ option.label }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+
+        <button
+          mat-flat-button
+          type="button"
+          class="search-button"
+          [disabled]="isLoading"
+          (click)="onSearch()">
+          Search
+        </button>
+      </div>
+    </div>
+
+    <div class="card marks-card">
+      <p-table
+        #dt
+        styleClass="marks-table"
+        [value]="attendanceRows"
+        [paginator]="true"
+        paginatorPosition="bottom"
+        [rows]="10"
+        [pageLinks]="3"
+        [stripedRows]="true"
+        [showGridlines]="true"
+        [showCurrentPageReport]="true"
+        currentPageReportTemplate="Page {currentPage} of {totalPages}">
+        <ng-template #caption>
+          <div class="marks-caption">
+            <span>Attendance metrics by selected month</span>
+          </div>
+        </ng-template>
+        <ng-template #header>
+          <tr>
+            <th pSortableColumn="attendanceStatus">
+              <div class="table-header-cell">
+                Attendance Status
+                <p-sortIcon field="attendanceStatus" />
+              </div>
+            </th>
+            <th pSortableColumn="attendanceDate">
+              <div class="table-header-cell">
+                Attendance Date
+                <p-sortIcon field="attendanceDate" />
+              </div>
+            </th>
+            <th pSortableColumn="attendanceDay">
+              <div class="table-header-cell">
+                Attendance Day
+                <p-sortIcon field="attendanceDay" />
+              </div>
+            </th>
+            <th pSortableColumn="dayOrder">
+              <div class="table-header-cell">
+                Day Order
+                <p-sortIcon field="dayOrder" />
+              </div>
+            </th>
+          </tr>
+        </ng-template>
+        <ng-template #body let-row>
+          <tr>
+            <td><span class="code-pill">{{ row.attendanceStatus }}</span></td>
+            <td>{{ row.attendanceDate }}</td>
+            <td>{{ row.attendanceDay }}</td>
+            <td><strong class="mark-value">{{ row.dayOrder }}</strong></td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+      @if (isLoading) {
+        <div class="loader-wrap">
+          <mat-progress-spinner mode="indeterminate" diameter="34"></mat-progress-spinner>
+        </div>
+      }
+    </div>
+  </div>
+</section>

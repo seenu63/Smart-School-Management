@@ -1,0 +1,117 @@
+.layout-sidebar{
+    width:260px;
+    height:100vh;
+    position:fixed;
+    background:#ffffff;
+    border-right:1px solid #e5e7eb;
+    padding:15px;
+    overflow:auto;
+}
+
+.menu-title{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing: 0.015em;
+    color:#0f2d57;
+    display:block;
+    margin:6px 0 8px;
+    width: 100%;
+}
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    padding:10px 8px;
+    border-radius:6px;
+    cursor:pointer;
+    color:#16324f;
+    text-decoration:none;
+    gap:10px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: background-color 150ms ease, color 150ms ease, box-shadow 150ms ease, transform 120ms ease;
+}
+
+.menu-item:hover{
+    background:#f3f4f6;
+    transform: translateX(1px);
+}
+
+.menu-item.active{
+    color:#0f5132;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ecfdf3 0%, #dcfce7 100%);
+    box-shadow: inset 0 0 0 1px #bbf7d0;
+}
+
+.menu-sub{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(1.5rem + 20px);
+    height: calc(1.5rem + 20px);
+    padding: 10px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #374151;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.menu-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 999px;
+    background: transparent;
+    color: #16324f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.menu-item.active .menu-icon {
+    color: #0f5132;
+    background: #bbf7d0;
+}
+
+.menu-icon svg {
+    width: 0.95rem;
+    height: 0.95rem;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+.layout-sidebar.close .menu-text{
+    display:none;
+}
+
+.layout-sidebar.close{
+    width:70px;
+}
+
+.layout-sidebar.close .menu-sub,
+.layout-sidebar.close .menu-item {
+    justify-content: center;
+}
+
+.layout-sidebar.close .menu-item,
+.layout-sidebar.close .menu-toggle {
+    padding-left: 0;
+    padding-right: 0;
+}

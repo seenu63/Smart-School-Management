@@ -1,0 +1,18 @@
+.back-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.75rem;
+}
+
+.back-btn {
+  border: 0;
+  background: #2563eb;
+  color: #ffffff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  background: #1d4ed8;
+}

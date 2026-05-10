@@ -1,0 +1,342 @@
+.table-header-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.marks-page {
+  min-height: 100%;
+  padding: 1.25rem;
+  background:
+    radial-gradient(circle at top left, rgba(60, 130, 246, 0.18), transparent 28%),
+    linear-gradient(180deg, #f4f8ff 0%, #eef4fb 100%);
+}
+
+.page-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.back-btn-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
+.back-btn {
+  border: 1px solid #cfd9ea;
+  background: #ffffff;
+  color: #153a63;
+  padding: 0.7rem 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #f6f9ff;
+  border-color: #9fb9de;
+  transform: translateY(-1px);
+}
+
+.marks-hero {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #153a63 0%, #2563eb 100%);
+  color: #ffffff;
+  box-shadow: 0 20px 45px rgba(21, 58, 99, 0.22);
+}
+
+.marks-hero-copy h2 {
+  margin: 0.35rem 0 0.5rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  line-height: 1.15;
+}
+
+.marks-kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+.marks-description {
+  max-width: 620px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.marks-summary {
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem 1.1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(4px);
+}
+
+.summary-label {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.marks-summary strong {
+  font-size: 2rem;
+  margin-top: 0.3rem;
+}
+
+.marks-toolbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.25rem 0 1rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid #dbe5f3;
+  box-shadow: 0 14px 34px rgba(15, 36, 74, 0.08);
+}
+
+.marks-toolbar-copy h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+  color: #17395f;
+}
+
+.marks-toolbar-copy span {
+  color: #60758f;
+  font-size: 0.92rem;
+}
+
+.marks-toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.edit-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  border: 1px solid #cfd9ea;
+  background: #ffffff;
+  color: #3f51b5;
+  box-shadow: 0 8px 16px rgba(63, 81, 181, 0.18);
+  transition: all 0.2s ease;
+}
+
+.edit-button:hover {
+  border-color: #3f51b5;
+  background: #eef1ff;
+}
+
+.edit-button svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.table-edit-btn {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #cfd9ea;
+  border-radius: 10px;
+  background: #fff;
+  color: #3f51b5;
+  transition: all 0.2s ease;
+}
+
+.table-edit-btn:hover {
+  border-color: #3f51b5;
+  background: #eef1ff;
+}
+
+.table-edit-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.marks-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #d9e4f3;
+  box-shadow: 0 20px 40px rgba(14, 35, 70, 0.09);
+  padding: 1rem;
+}
+
+.marks-caption {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.marks-caption span {
+  font-size: 0.9rem;
+  color: #4f6b8a;
+  background: #e7f0fb;
+  border-radius: 999px;
+  padding: 0.32rem 0.8rem;
+}
+
+.mark-type-select {
+  width: 200px;
+  margin: 0;
+}
+
+.search-button {
+  height: 56px;
+  padding: 0 1.4rem;
+  border-radius: 14px;
+  border: 1px solid #8cb9f1;
+  background: linear-gradient(135deg, #dbeeff 0%, #b9dcff 100%) !important;
+  color: #0f3d69 !important;
+  box-shadow: 0 10px 22px rgba(100, 161, 233, 0.24);
+  font-weight: 600;
+  min-width: 132px;
+}
+
+.search-button:hover {
+  background: linear-gradient(135deg, #d2e9ff 0%, #abd3ff 100%) !important;
+  border-color: #6ea8ea;
+}
+
+.code-pill {
+  display: inline-flex;
+  align-items: center;
+  min-width: 74px;
+  justify-content: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: #edf4ff;
+  color: #17406c;
+  font-weight: 700;
+  font-size: 0.84rem;
+}
+
+.mark-value {
+  color: #153a63;
+}
+
+.empty-state {
+  padding: 2rem 1rem 1rem;
+  text-align: center;
+}
+
+.empty-state h4 {
+  margin: 0 0 0.35rem;
+  color: #163b63;
+  font-size: 1.1rem;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #69809d;
+}
+
+:host ::ng-deep .mark-type-select .mat-mdc-text-field-wrapper {
+  background: #ffffff;
+  border-radius: 14px;
+}
+
+:host ::ng-deep .mark-type-select .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+:host ::ng-deep .mark-type-select .mat-mdc-form-field-infix {
+  min-height: auto;
+}
+
+:host ::ng-deep .marks-table .p-datatable-header {
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+:host ::ng-deep .marks-table .p-datatable-thead > tr > th {
+  background: #f4f8fd;
+  color: #173b62;
+  border-color: #e0e8f4;
+  padding: 1rem;
+}
+
+:host ::ng-deep .marks-table .p-datatable-tbody > tr > td {
+  border-color: #e8eef8;
+  padding: 1rem;
+}
+
+:host ::ng-deep .marks-table .action-col {
+  width: 90px;
+  text-align: center;
+}
+
+:host ::ng-deep .marks-table .p-datatable-tbody > tr:hover {
+  background: #f8fbff;
+}
+
+:host ::ng-deep .marks-table .p-paginator {
+  border: none;
+  border-top: 1px solid #d8e5f7;
+  background: transparent;
+}
+
+.loader-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(244, 248, 255, 0.72);
+  backdrop-filter: blur(2px);
+  border-radius: 24px;
+}
+
+@media (max-width: 768px) {
+  .marks-page {
+    padding: 1rem;
+  }
+
+  .marks-hero {
+    flex-direction: column;
+  }
+
+  .marks-summary {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .marks-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .marks-toolbar-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .mark-type-select,
+  .search-button {
+    width: 100%;
+  }
+}
