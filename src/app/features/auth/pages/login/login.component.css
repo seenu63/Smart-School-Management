@@ -96,6 +96,9 @@
       background: #b91c1c;
     }
 
+    .placeholdersize{
+      font-size: smaller;
+    }
 
     .loadingPanel {
       position: absolute;
@@ -109,7 +112,7 @@
 
     .loadingBox {
       background: #ffffff;
-      border: 1px solid deepskyblue;
+      border: 1px solid darkcyan;
       border-radius: 10px;
       padding: 16px 20px;
       display: flex;
@@ -164,7 +167,7 @@
     }
 
     .Container {
-      border: 1px solid deepskyblue;
+      border: 1px solid darkcyan;
       border-radius: 10px;
       padding: 20px;
       flex: 1;
@@ -179,7 +182,7 @@
     .auth-field {
       width: 100%;
       margin: 3px 0 12px 0;
-      --mat-form-field-container-height: 42px;
+      --mat-form-field-container-height: 33px;
       --mat-form-field-container-vertical-padding: 10px;
     }
 
@@ -190,26 +193,33 @@
     .auth-field ::ng-deep .mdc-notched-outline__leading,
     .auth-field ::ng-deep .mdc-notched-outline__notch,
     .auth-field ::ng-deep .mdc-notched-outline__trailing {
-      border-color: deepskyblue !important;
+      border-color: darkcyan !important;
     }
+
+   .auth-field ::ng-deep .mat-mdc-text-field-wrapper,
+   .auth-field ::ng-deep  .mdc-text-field, 
+   .auth-field ::ng-deep  .mdc-text-field--outlined,
+   .auth-field ::ng-deep  .mdc-text-field--invalid{
+     height: 37px;
+   }
 
     .login-btn {
       width: 100%;
       padding: 10px;
       margin: 3px 0 16px 0px;
-      border: 1px solid deepskyblue;
+      border: 1px solid darkcyan;
       border-radius: 11px;
       font-size: 14px;
     }
 
     .login-btn {
-      background-color: deepskyblue;
+      background-color: darkcyan;
       color: white;
       cursor: pointer;
     }
 
     .login-btn:hover {
-      background-color: dodgerblue;
+      background-color: darkcyan;
     }
 
     .login-btn:disabled {
@@ -221,18 +231,28 @@
       text-align: center;
       font-size: 24px;
       margin-bottom: 10px;
+      color: darkcyan;
     }
 
-    .forgatPWD {
+    .forgotPWD {
       display: flex;
       justify-content: space-between;
       margin: 0 0 12px 0;
       font-size: 13px;
     }
 
-    .forgatPWD a {
+    .forgotPWD a {
       text-decoration: none;
-      color: deepskyblue;
+      color: darkcyan;
+    }
+
+    .forgotCheckbox{
+      display: flex;
+    }
+
+    .forgotCheckboxText{
+     margin: 2px 0 0 5px;
+     color: darkcyan;
     }
 
     .loginText {

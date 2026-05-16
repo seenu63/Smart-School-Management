@@ -14,25 +14,29 @@
   </div>
 
   <div class="imgHadle">
-    <!-- Login Form -->
+    <!-- Login Form   -->
     <div class="Container">
       <h2 class="LoginHeader">Login</h2>
       <div class="SubContainer">
         
         <mat-form-field appearance="outline" class="auth-field">
-          <mat-label>User Name</mat-label>
+          <mat-label class="placeholdersize">User Name</mat-label>
           <input matInput [(ngModel)]="Userid" type="text" required />
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="auth-field">
-          <mat-label>Password</mat-label>
+          <mat-label class="placeholdersize">Password</mat-label>
           <input matInput [(ngModel)]="Password" type="password" required />
         </mat-form-field>
 
-        <div class="forgatPWD">
-          <div>
+        <div class="forgotPWD">
+          <div class="forgotCheckbox">
+            <div>
             <input type="checkbox" id="remember" />
+            </div>
+            <div class="forgotCheckboxText">
             <label for="remember">Remember password</label>
+            </div>
           </div>
           <div>
             <a href="#">Forgot Password?</a>
@@ -50,5 +54,5 @@
     <div class="imageBox">
       <img src="assets/images/LoginMen.png" alt="Login Illustration" class="LogImg" />
     </div>
-  </div>
+   </div>
 </div>
