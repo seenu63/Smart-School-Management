@@ -1,7 +1,6 @@
  *, *::before, *::after {
       box-sizing: border-box;
     }
-
       
     body {
       margin: 0;
@@ -163,7 +162,7 @@
       background-color: #f9fefe;;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      padding: 20px;
+      padding: 29px;
     }
 
     .Container {
@@ -286,7 +285,7 @@
       .imgHadle {
         flex-direction: column-reverse; /* Show image on top */
         align-items: center;
-        padding: 15px;
+        width: 90%;
       }
 
       .Container,
@@ -295,10 +294,13 @@
         width: 100%;
       }
 
+     .Container {
+      min-width: 282px;
+     }
+
       .LogImg {
         max-height: 180px;
         width: auto;
-        margin-bottom: 20px;
       }
 
       .auth-field,
@@ -308,14 +310,7 @@
     }
 
     @media (max-width: 500px) {
-      .imgHadle {
-        padding: 10px;
-      }
-
-      .Container {
-        padding: 15px;
-      }
-
+     
       .LogImg {
         max-height: 150px;
       }
