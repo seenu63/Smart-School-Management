@@ -157,11 +157,11 @@
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      width: 100%;
+      width: 67%;
       max-width: 1000px;
       background-color: #f9fefe;;
       border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px #86efac;
       padding: 29px;
     }
 
@@ -286,6 +286,7 @@
         flex-direction: column-reverse; /* Show image on top */
         align-items: center;
         width: 90%;
+        padding: 21px;
       }
 
       .Container,
